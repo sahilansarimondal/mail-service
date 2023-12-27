@@ -10,12 +10,10 @@ export async function POST(request: NextRequest, response: NextResponse) {
   try {
     const reqBody = await request.json();
     const { email, password } = reqBody;
-    console.log(reqBody);
 
     // Check if user already exists
 
     const user = await User.findOne({ email });
-
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 400 });
     }
@@ -23,8 +21,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     // Check if password is correct
 
     const validPassword = await bcryptjs.compare(password, user.password);
-
-    console.log(validPassword);
 
     if (!validPassword) {
       console.log("from valid password error");
@@ -41,7 +37,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
     // create token
 
-    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
+    const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
       expiresIn: "1d",
     });
 
