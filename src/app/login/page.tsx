@@ -41,7 +41,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>{loading ? "Loading" : "Login"}</h1>
+      <h1 className="text-4xl m-4">{loading ? "Loading" : "Login"}</h1>
       <hr />
       <label htmlFor="email">email</label>
       <input
@@ -61,6 +61,10 @@ export default function LoginPage() {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="password"
       />
+      <Link className="mb-6" href={"/login/forgotpassword"}>
+        forgot Password?
+      </Link>
+
       <button
         onClick={onLogin}
         className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600"
