@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid token" }, { status: 404 });
     }
 
-    user.isVarified = true;
+    user.isVerified = true;
     user.forgotPasswordToken = null;
     user.forgotPasswordTokenExpiry = null;
 

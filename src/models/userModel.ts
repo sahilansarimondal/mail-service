@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     type: "string",
     required: [true, "Please enter a password"],
   },
-  isVarified: {
+  isVerified: {
     type: "boolean",
     default: false,
   },
@@ -23,10 +23,10 @@ const userSchema = new mongoose.Schema({
     type: "boolean",
     default: false,
   },
-  forgotPasswordToken: { type: "string", default: null },
-  forgotPasswordTokenExpiry: { type: "date", default: null },
-  verifyToken: { type: "string", default: null },
-  verifyTokenExpiry: { type: "date", default: null },
+  forgotPasswordToken: { type: "string", default: undefined },
+  forgotPasswordTokenExpiry: { type: "date", default: undefined },
+  verifyToken: { type: "string", default: undefined },
+  verifyTokenExpiry: { type: "date", default: undefined },
 });
 
 const User = mongoose.models.users || mongoose.model("users", userSchema);
