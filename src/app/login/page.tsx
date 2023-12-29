@@ -41,9 +41,13 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl m-4">{loading ? "Loading" : "Login"}</h1>
+      <h1 className="text-4xl m-4 font-semibold">
+        {loading ? "Loading..." : " Welcome back"}
+      </h1>
       <hr />
-      <label htmlFor="email">email</label>
+      <label htmlFor="email" className="m-1 font-semibold">
+        Email
+      </label>
       <input
         className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
         type="text"
@@ -52,7 +56,9 @@ export default function LoginPage() {
         onChange={(e) => setUser({ ...user, email: e.target.value })}
         placeholder="email"
       />
-      <label htmlFor="password">password</label>
+      <label htmlFor="password" className="m-1 font-semibold">
+        Password
+      </label>
       <input
         className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
         type="text"
@@ -61,17 +67,25 @@ export default function LoginPage() {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="password"
       />
-      <Link className="mb-6" href={"/login/forgotpassword"}>
+      <Link
+        className="mb-4 text-blue-400 font-semibold hover:font-bold hover:text-blue-500 "
+        href={"/login/forgotpassword"}
+      >
         forgot Password?
       </Link>
 
       <button
         onClick={onLogin}
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600"
+        className="p-2 border-2 border-gray-300 rounded-lg mb-4 hover:border-green-500 "
       >
-        {buttonDisabled ? "No Login" : "Login"}
+        {buttonDisabled ? "Enter details" : "Login"}
       </button>
-      <Link href={"/signup"}>Visit Signup Page</Link>
+      <Link
+        className="text-blue-400 font-semibold hover:font-bold hover:text-blue-500 "
+        href={"/signup"}
+      >
+        Visit Signup Page
+      </Link>
     </div>
   );
 }
