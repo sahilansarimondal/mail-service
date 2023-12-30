@@ -42,56 +42,58 @@ export default function LoginPage() {
     }
   }, [user]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl m-4 font-semibold">
-        {loading ? "Loading..." : "Create Account"}
-      </h1>
-      <hr />
-      <label className="m-1 font-semibold" htmlFor="username">
-        Username
-      </label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
-        type="text"
-        id="username"
-        value={user.username}
-        onChange={(e) => setUser({ ...user, username: e.target.value })}
-        placeholder="username"
-      />
-      <label className="m-1 font-semibold" htmlFor="email">
-        Email
-      </label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
-        type="text"
-        id="email"
-        value={user.email}
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
-      />
-      <label className="m-1 font-semibold" htmlFor="password">
-        Password
-      </label>
-      <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
-        type="text"
-        id="password"
-        value={user.password}
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-        placeholder="password"
-      />
-      <button
-        onClick={onSignup}
-        className="p-2 mt-4 border-2 border-gray-300 rounded-lg mb-4 hover:border-green-600 "
-      >
-        {buttonDisabled ? "Enter Details" : "Sign Up"}
-      </button>
-      <Link
-        className="font-semibold text-blue-400 hover:text-blue-500 hover:font-bold"
-        href={"/login"}
-      >
-        Visit Login Page
-      </Link>
+    <div className="flex flex-col items-center justify-center ">
+      <div className="flex p-6 justify-center items-center flex-col border-2 rounded-3xl border-slate-800">
+        <h1 className="text-4xl m-4 font-semibold">
+          {loading ? "Loading..." : "Create Account"}
+        </h1>
+        <hr />
+        <label className="m-1 font-semibold" htmlFor="username">
+          Username
+        </label>
+        <input
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
+          type="text"
+          id="username"
+          value={user.username}
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
+          placeholder="username"
+        />
+        <label className="m-1 font-semibold" htmlFor="email">
+          Email
+        </label>
+        <input
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus: border-gray-600 text-black"
+          type="text"
+          id="email"
+          value={user.email}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          placeholder="email"
+        />
+        <label className="m-1 font-semibold" htmlFor="password">
+          Password
+        </label>
+        <input
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:border-slate-900 text-black"
+          type="text"
+          id="password"
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          placeholder="password"
+        />
+        <button
+          onClick={onSignup}
+          className="p-2 border-b-2 border-gray-300 bg-slate-900 rounded-lg mb-4 hover:border-blue-500 hover:bg-slate-800 "
+        >
+          {buttonDisabled ? "Enter Details" : "Sign Up"}
+        </button>
+        <Link
+          className="font-semibold text-blue-400 hover:text-blue-500 hover:font-bold"
+          href={"/login"}
+        >
+          Visit Login Page
+        </Link>
+      </div>
     </div>
   );
 }
